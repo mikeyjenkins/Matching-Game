@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F762B9126E912B3006B9E1A /* EmojiConcentrationGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F762B9026E912B3006B9E1A /* EmojiConcentrationGame.swift */; };
+		3F762B9326E9171F006B9E1A /* ConcentrationGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F762B9226E9171F006B9E1A /* ConcentrationGame.swift */; };
 		3FCF306626E7C6C500651770 /* ConcentrationHW3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF306526E7C6C500651770 /* ConcentrationHW3App.swift */; };
 		3FCF306826E7C6C500651770 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF306726E7C6C500651770 /* ContentView.swift */; };
 		3FCF306A26E7C6C900651770 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FCF306926E7C6C900651770 /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F762B9026E912B3006B9E1A /* EmojiConcentrationGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiConcentrationGame.swift; sourceTree = "<group>"; };
+		3F762B9226E9171F006B9E1A /* ConcentrationGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationGame.swift; sourceTree = "<group>"; };
 		3FCF306226E7C6C500651770 /* ConcentrationHW3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConcentrationHW3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FCF306526E7C6C500651770 /* ConcentrationHW3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationHW3App.swift; sourceTree = "<group>"; };
 		3FCF306726E7C6C500651770 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,6 +36,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F762B8D26E91284006B9E1A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3F762B9026E912B3006B9E1A /* EmojiConcentrationGame.swift */,
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		3F762B8E26E9128D006B9E1A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3FCF306526E7C6C500651770 /* ConcentrationHW3App.swift */,
+				3FCF306726E7C6C500651770 /* ContentView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		3F762B8F26E91296006B9E1A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3F762B9226E9171F006B9E1A /* ConcentrationGame.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		3FCF305926E7C6C500651770 = {
 			isa = PBXGroup;
 			children = (
@@ -51,8 +80,9 @@
 		3FCF306426E7C6C500651770 /* ConcentrationHW3 */ = {
 			isa = PBXGroup;
 			children = (
-				3FCF306526E7C6C500651770 /* ConcentrationHW3App.swift */,
-				3FCF306726E7C6C500651770 /* ContentView.swift */,
+				3F762B8F26E91296006B9E1A /* Model */,
+				3F762B8E26E9128D006B9E1A /* View */,
+				3F762B8D26E91284006B9E1A /* ViewModel */,
 				3FCF306926E7C6C900651770 /* Assets.xcassets */,
 				3FCF306B26E7C6C900651770 /* Preview Content */,
 			);
@@ -139,6 +169,8 @@
 			files = (
 				3FCF306826E7C6C500651770 /* ContentView.swift in Sources */,
 				3FCF306626E7C6C500651770 /* ConcentrationHW3App.swift in Sources */,
+				3F762B9126E912B3006B9E1A /* EmojiConcentrationGame.swift in Sources */,
+				3F762B9326E9171F006B9E1A /* ConcentrationGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
