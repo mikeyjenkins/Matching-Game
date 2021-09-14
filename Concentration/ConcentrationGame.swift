@@ -26,6 +26,7 @@ struct ConcentrationGame<CardContent> {
     mutating func choose(_ card: Card) {
         print("You chose \(card)")
 
+        // TODO: should we rename cardIndex (e.g. to chosenIndex)?
         if let cardIndex = cards.index(of: card) {
             cards[cardIndex].isFaceUp.toggle()
         }
