@@ -25,6 +25,11 @@ struct Pie: Shape {
         p.move(to: center)
         p.addLine(to: start)
         p.addArc(center: center, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: clockwise)
+        // I didn't tell you this in class or in the video, but if you do
+        // not move back to the center, when you end the Path it will
+        // automatically close the path by moving back to the place you
+        // started.  In this case, since we first drew from the center,
+        // that's the point we want to finish on as well.
         p.move(to: center)
 
         return p
