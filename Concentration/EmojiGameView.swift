@@ -15,17 +15,42 @@ struct EmojiGameView: View {
     }
 
     var body: some View {
-        GeometryReader { geometry in
-            LazyVGrid(columns: columns(for: geometry.size)) {
-                ForEach(emojiGame.cards) { card in
-                    CardView(card: card)
-                        .onTapGesture {
-                            emojiGame.choose(card)
+        NavigationView {
+            GeometryReader { geometry in
+                ScrollView {
+                    VStack {
+                        LazyVGrid(columns: columns(for: geometry.size)) {
+                            ForEach(emojiGame.cards) { card in
+                                CardView(card: card)
+                                    .onTapGesture {
+                                        emojiGame.choose(card)
+                                    }
+                            }
                         }
+
+                        ZStack {
+                            Rectangle()
+                                .opacity(0.2)
+                            HStack {
+                                Button("New Game") {
+                                    emojiGame.newGame()
+                                }
+                                Spacer()
+                                Text("Score: \(emojiGame.score)")
+                                    .foregroundColor(.black)
+                            }
+                            .padding()
+                        }
+                    }
+                    .padding()
+                    .foregroundColor(.blue)
                 }
             }
-            .padding()
-            .foregroundColor(.blue)
+            .navigationTitle("Concentration")
+            .navigationBarItems(leading: Button("New Game") {
+                emojiGame.newGame()
+            }, trailing: Text("Score: \(emojiGame.score)"))
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 

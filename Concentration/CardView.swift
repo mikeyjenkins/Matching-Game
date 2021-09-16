@@ -13,13 +13,17 @@ struct CardView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                if card.isFaceUp {
-                    RoundedRectangle(cornerRadius: Constants.cardCornerRadius).fill(.white)
-                    RoundedRectangle(cornerRadius: Constants.cardCornerRadius).stroke()
-                    Text(card.content)
-                        .font(systemFont(for: geometry.size))
-                } else {
-                    RoundedRectangle(cornerRadius: Constants.cardCornerRadius)
+                if !card.isMatched || card.isFaceUp {
+                    if card.isFaceUp {
+                        RoundedRectangle(cornerRadius: Constants.cardCornerRadius).fill(.white)
+                        RoundedRectangle(cornerRadius: Constants.cardCornerRadius).stroke()
+                        Pie(startAngle: Angle(degrees: 360 - 90), endAngle: Angle(degrees: 100 - 90), clockwise: true)
+                            .opacity(0.4)
+                        Text(card.content)
+                            .font(systemFont(for: geometry.size))
+                    } else {
+                        RoundedRectangle(cornerRadius: Constants.cardCornerRadius)
+                    }
                 }
             }
         }
@@ -38,7 +42,8 @@ struct CardView: View {
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(card: ConcentrationGame<String>.Card(content: "🥝", id: 13))
+        CardView(card: ConcentrationGame<String>.Card(isFaceUp: true, isMatched: false, content: "🥝"))
+            .foregroundColor(.orange)
             .padding(50)
     }
 }

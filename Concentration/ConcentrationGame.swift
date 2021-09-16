@@ -8,9 +8,14 @@
 import Foundation
 
 struct ConcentrationGame<CardContent> where CardContent: Equatable {
-    var cards: Array<Card>
+    private(set) var cards: Array<Card>
+    var score: Int {
+        cards.reduce(0) { total, card in
+            total + card.score
+        }
+    }
 
-    var indexOfTheOneAndOnlyFaceUpCard: Int?
+    private var indexOfTheOneAndOnlyFaceUpCard: Int?
 
     init(numberOfPairsOfCards: Int, cardContentFactory: (Int) -> CardContent) {
         cards = Array<Card>()
@@ -18,8 +23,8 @@ struct ConcentrationGame<CardContent> where CardContent: Equatable {
         for pairIndex in 0..<numberOfPairsOfCards {
             let content = cardContentFactory(pairIndex)
 
-            cards.append(Card(content: content, id: pairIndex * 2))
-            cards.append(Card(content: content, id: pairIndex * 2 + 1))
+            cards.append(Card(content: content))
+            cards.append(Card(content: content))
         }
 
         cards.shuffle()
@@ -45,14 +50,28 @@ struct ConcentrationGame<CardContent> where CardContent: Equatable {
                 indexOfTheOneAndOnlyFaceUpCard = chosenIndex
             }
 
+            cards[chosenIndex].viewCount += 1
             cards[chosenIndex].isFaceUp.toggle()
         }
     }
 
     struct Card: Identifiable {
-        var isFaceUp = false
-        var isMatched = false
-        var content: CardContent
-        var id: Int
+        fileprivate(set) var isFaceUp = false
+        fileprivate(set) var isMatched = false
+        fileprivate(set) var viewCount = 0
+        fileprivate(set) var content: CardContent
+        fileprivate(set) var id = UUID()
+
+        var score: Int {
+            if isMatched {
+                return 3 - viewCount
+            }
+
+            if viewCount > 0 {
+                return -viewCount + 1
+            }
+
+            return 0
+        }
     }
 }
