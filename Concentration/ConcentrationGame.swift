@@ -15,7 +15,10 @@ struct ConcentrationGame<CardContent> where CardContent: Equatable {
         }
     }
 
-    private var indexOfTheOneAndOnlyFaceUpCard: Int?
+    private var indexOfTheOneAndOnlyFaceUpCard: Int? {
+        get { cards.indices.filter { cards[$0].isFaceUp }.only }
+        set { cards.indices.forEach { cards[$0].isFaceUp = ($0 == newValue) } }
+    }
 
     init(numberOfPairsOfCards: Int, cardContentFactory: (Int) -> CardContent) {
         cards = Array<Card>()
@@ -41,17 +44,12 @@ struct ConcentrationGame<CardContent> where CardContent: Equatable {
                     cards[potentialMatchIndex].isMatched = true
                 }
 
-                indexOfTheOneAndOnlyFaceUpCard = nil
+                cards[chosenIndex].isFaceUp = true
             } else {
-                for index in cards.indices {
-                    cards[index].isFaceUp = false
-                }
-
                 indexOfTheOneAndOnlyFaceUpCard = chosenIndex
             }
 
             cards[chosenIndex].viewCount += 1
-            cards[chosenIndex].isFaceUp.toggle()
         }
     }
 
