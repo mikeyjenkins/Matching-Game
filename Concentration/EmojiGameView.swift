@@ -14,6 +14,20 @@ struct EmojiGameView: View {
         Array(repeating: GridItem(.flexible()), count: Int(size.width / Constants.desiredCardWidth))
     }
 
+    func startNewGame() {
+        withAnimation {
+            emojiGame.newGame()
+        }
+    }
+
+    @ViewBuilder
+    func buttonStack() -> some View {
+        Button("New Game", action: startNewGame)
+        Spacer()
+        Text("Score: \(emojiGame.score)")
+            .foregroundColor(.black)
+    }
+
     var body: some View {
         NavigationView {
             GeometryReader { geometry in
@@ -23,7 +37,9 @@ struct EmojiGameView: View {
                             ForEach(emojiGame.cards) { card in
                                 CardView(card: card)
                                     .onTapGesture {
-                                        emojiGame.choose(card)
+                                        withAnimation(.easeInOut(duration: 0.5)) {
+                                            emojiGame.choose(card)
+                                        }
                                     }
                             }
                         }
@@ -31,14 +47,7 @@ struct EmojiGameView: View {
                         ZStack {
                             Rectangle()
                                 .opacity(0.2)
-                            HStack {
-                                Button("New Game") {
-                                    emojiGame.newGame()
-                                }
-                                Spacer()
-                                Text("Score: \(emojiGame.score)")
-                                    .foregroundColor(.black)
-                            }
+                            HStack(content: buttonStack)
                             .padding()
                         }
                     }
@@ -48,7 +57,9 @@ struct EmojiGameView: View {
             }
             .navigationTitle("Concentration")
             .navigationBarItems(leading: Button("New Game") {
-                emojiGame.newGame()
+                withAnimation {
+                    emojiGame.newGame()
+                }
             }, trailing: Text("Score: \(emojiGame.score)"))
             .navigationBarTitleDisplayMode(.inline)
         }

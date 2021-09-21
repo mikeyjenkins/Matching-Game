@@ -9,6 +9,7 @@ import Foundation
 
 struct ConcentrationGame<CardContent> where CardContent: Equatable {
     private(set) var cards: Array<Card>
+
     var score: Int {
         cards.reduce(0) { total, card in
             total + card.score

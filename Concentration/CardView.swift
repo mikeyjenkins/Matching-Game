@@ -14,18 +14,17 @@ struct CardView: View {
         GeometryReader { geometry in
             ZStack {
                 if !card.isMatched || card.isFaceUp {
-                    if card.isFaceUp {
-                        RoundedRectangle(cornerRadius: Constants.cardCornerRadius).fill(.white)
-                        RoundedRectangle(cornerRadius: Constants.cardCornerRadius).stroke()
-                        Pie(startAngle: Angle(degrees: 360 - 90), endAngle: Angle(degrees: 100 - 90), clockwise: true)
-                            .opacity(0.4)
-                        Text(card.content)
-                            .font(systemFont(for: geometry.size))
-                    } else {
-                        RoundedRectangle(cornerRadius: Constants.cardCornerRadius)
-                    }
+                    Pie(startAngle: Angle(degrees: 360 - 90), endAngle: Angle(degrees: 100 - 90), clockwise: true)
+                        .opacity(0.4)
+                    Text(card.content)
+                        .font(systemFont(for: geometry.size))
+                        .rotationEffect(Angle.degrees(card.isMatched ? 360 : 0))
+                        .animation(card.isMatched
+                                   ? .linear(duration: 1.0).repeatForever(autoreverses: false)
+                                   : .default)
                 }
             }
+            .cardify(isFaceUp: card.isFaceUp)
         }
         .aspectRatio(2/3, contentMode: .fit)
     }
