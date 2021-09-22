@@ -12,8 +12,8 @@ struct CardView: View {
 
     var body: some View {
         GeometryReader { geometry in
-            ZStack {
-                if !card.isMatched || card.isFaceUp {
+            if !card.isMatched || card.isFaceUp {
+                ZStack {
                     Pie(startAngle: Angle(degrees: 360 - 90), endAngle: Angle(degrees: 100 - 90), clockwise: true)
                         .opacity(0.4)
                     Text(card.content)
@@ -23,8 +23,9 @@ struct CardView: View {
                                    ? .linear(duration: 1.0).repeatForever(autoreverses: false)
                                    : .default)
                 }
+                .cardify(isFaceUp: card.isFaceUp)
+                .transition(.scale)
             }
-            .cardify(isFaceUp: card.isFaceUp)
         }
         .aspectRatio(2/3, contentMode: .fit)
     }

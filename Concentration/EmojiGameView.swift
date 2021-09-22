@@ -11,21 +11,7 @@ struct EmojiGameView: View {
     @ObservedObject var emojiGame: EmojiConcentrationGame
 
     private func columns(for size: CGSize) -> [GridItem] {
-        Array(repeating: GridItem(.flexible()), count: Int(size.width / Constants.desiredCardWidth))
-    }
-
-    func startNewGame() {
-        withAnimation {
-            emojiGame.newGame()
-        }
-    }
-
-    @ViewBuilder
-    func buttonStack() -> some View {
-        Button("New Game", action: startNewGame)
-        Spacer()
-        Text("Score: \(emojiGame.score)")
-            .foregroundColor(.black)
+        Array(repeating: GridItem(.fixed(Constants.desiredCardWidth)), count: Int(size.width / Constants.desiredCardWidth))
     }
 
     var body: some View {
@@ -43,13 +29,6 @@ struct EmojiGameView: View {
                                     }
                             }
                         }
-
-                        ZStack {
-                            Rectangle()
-                                .opacity(0.2)
-                            HStack(content: buttonStack)
-                            .padding()
-                        }
                     }
                     .padding()
                     .foregroundColor(.blue)
@@ -66,7 +45,7 @@ struct EmojiGameView: View {
     }
 
     private struct Constants {
-        static let desiredCardWidth: CGFloat = 125
+        static let desiredCardWidth: CGFloat = 110
     }
 }
 

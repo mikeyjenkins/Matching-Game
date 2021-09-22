@@ -15,10 +15,11 @@ struct Cardify: ViewModifier {
             if isFaceUp {
                 RoundedRectangle(cornerRadius: Constants.cardCornerRadius).fill(.white)
                 RoundedRectangle(cornerRadius: Constants.cardCornerRadius).stroke()
-                content
             } else {
                 RoundedRectangle(cornerRadius: Constants.cardCornerRadius)
             }
+
+            content.opacity(isFaceUp ? 1 : 0)
         }
         .rotation3DEffect(Angle.degrees(isFaceUp ? 0 : 180), axis: (0, 1, 0))
     }
