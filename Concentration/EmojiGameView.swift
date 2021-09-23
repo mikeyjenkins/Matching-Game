@@ -23,7 +23,7 @@ struct EmojiGameView: View {
                             ForEach(emojiGame.cards) { card in
                                 CardView(card: card)
                                     .onTapGesture {
-                                        withAnimation(.easeInOut(duration: 0.5)) {
+                                        withAnimation {
                                             emojiGame.choose(card)
                                         }
                                     }
