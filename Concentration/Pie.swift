@@ -10,7 +10,17 @@ import SwiftUI
 struct Pie: Shape {
     var startAngle: Angle
     var endAngle: Angle
-    var clockwise = true
+    var clockwise = false
+
+    var animatableData: AnimatablePair<Double, Double> {
+        get {
+            AnimatablePair(startAngle.radians, endAngle.radians)
+        }
+        set {
+            startAngle = Angle.radians(newValue.first)
+            endAngle = Angle.radians(newValue.second)
+        }
+    }
 
     func path(in rect: CGRect) -> Path {
         let center = CGPoint(x: rect.midX, y: rect.midY)
@@ -24,13 +34,8 @@ struct Pie: Shape {
 
         p.move(to: center)
         p.addLine(to: start)
-        p.addArc(center: center, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: clockwise)
-        // I didn't tell you this in class or in the video, but if you do
-        // not move back to the center, when you end the Path it will
-        // automatically close the path by moving back to the place you
-        // started.  In this case, since we first drew from the center,
-        // that's the point we want to finish on as well.
-        p.move(to: center)
+        p.addArc(center: center, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: !clockwise)
+        p.addLine(to: center)
 
         return p
     }
@@ -38,7 +43,7 @@ struct Pie: Shape {
 
 struct Pie_Previews: PreviewProvider {
     static var previews: some View {
-        Pie(startAngle: Angle(degrees: 0-90), endAngle: Angle(degrees: 105-90))
+        Pie(startAngle: Angle(degrees: 40-90), endAngle: Angle(degrees: 145-90))
             .foregroundColor(.orange)
             .opacity(0.4)
             .padding()

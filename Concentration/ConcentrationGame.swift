@@ -55,15 +55,29 @@ struct ConcentrationGame<CardContent> where CardContent: Equatable {
     }
 
     struct Card: Identifiable {
-        fileprivate(set) var isFaceUp = false
-        fileprivate(set) var isMatched = false
+        fileprivate(set) var isFaceUp = false {
+            didSet {
+                if isFaceUp {
+                    startUsingBonusTime()
+                } else {
+                    stopUsingBonusTime()
+                }
+            }
+        }
+
+        fileprivate(set) var isMatched = false {
+            didSet {
+                stopUsingBonusTime()
+            }
+        }
+
         fileprivate(set) var viewCount = 0
         fileprivate(set) var content: CardContent
         fileprivate(set) var id = UUID()
 
         var score: Int {
             if isMatched {
-                return 3 - viewCount
+                return 3 - viewCount + Int(bonusRemaining * 5)
             }
 
             if viewCount > 0 {
@@ -71,6 +85,47 @@ struct ConcentrationGame<CardContent> where CardContent: Equatable {
             }
 
             return 0
+        }
+
+        // MARK: - Bonus Time
+
+        var bonusTimeLimit: TimeInterval = 12
+        var lastFaceUpTime: Date?
+        var pastFaceUpTime: TimeInterval = 0
+
+        var bonusTimeRemaining: TimeInterval {
+            max(0, bonusTimeLimit - faceUpTime)
+        }
+
+        var bonusRemaining: Double {
+            (bonusTimeLimit > 0 && bonusTimeRemaining > 0) ? bonusTimeRemaining / bonusTimeLimit : 0
+        }
+
+        var hasEarnedBonus: Bool {
+            isMatched && bonusTimeRemaining > 0
+        }
+
+        var isConsumingBonusTime: Bool {
+            isFaceUp && !isMatched && bonusTimeRemaining > 0
+        }
+
+        private var faceUpTime: TimeInterval {
+            if let lastFaceUpTime = lastFaceUpTime {
+                return pastFaceUpTime + Date().timeIntervalSince(lastFaceUpTime)
+            } else {
+                return pastFaceUpTime
+            }
+        }
+
+        private mutating func startUsingBonusTime() {
+            if isConsumingBonusTime && lastFaceUpTime == nil {
+                lastFaceUpTime = Date()
+            }
+        }
+
+        private mutating func stopUsingBonusTime() {
+            pastFaceUpTime = faceUpTime
+            lastFaceUpTime = nil
         }
     }
 }
