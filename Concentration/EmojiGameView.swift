@@ -17,10 +17,6 @@ struct EmojiGameView: View {
     var body: some View {
         NavigationView {
             GeometryReader { geometry in
-//                ScrollView {
-//                    VStack {
-//                        LazyVGrid(columns: columns(for: geometry.size)) {
-//                            ForEach(emojiGame.cards) { card in
                 AspectVGrid(items: emojiGame.cards, aspectRatio: 2/3) { card in
                     CardView(card: card)
                         .padding(geometry.size.width * 0.01)
@@ -30,12 +26,8 @@ struct EmojiGameView: View {
                             }
                         }
                 }
-//                            }
-//                        }
-//                    }
                     .padding(geometry.size.width * 0.01)
                     .foregroundColor(.blue)
-//                }
             }
             .navigationTitle("Concentration")
             .navigationBarItems(leading: Button("New Game") {
