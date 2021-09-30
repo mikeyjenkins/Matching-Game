@@ -59,12 +59,12 @@
 		3F762B8E26E9128D006B9E1A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3F89774726FE884600867A9B /* AspectVGrid.swift */,
+				3F741B4226FA211100677E08 /* Cardify.swift */,
 				3F762B9426EA5139006B9E1A /* CardView.swift */,
 				3FCF306526E7C6C500651770 /* ConcentrationApp.swift */,
 				3FCF306726E7C6C500651770 /* EmojiGameView.swift */,
 				3F958B5126F394CB005CDD7D /* Pie.swift */,
-				3F741B4226FA211100677E08 /* Cardify.swift */,
-				3F89774726FE884600867A9B /* AspectVGrid.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";

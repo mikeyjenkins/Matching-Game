@@ -10,10 +10,6 @@ import SwiftUI
 struct EmojiGameView: View {
     @ObservedObject var emojiGame: EmojiConcentrationGame
 
-    private func columns(for size: CGSize) -> [GridItem] {
-        Array(repeating: GridItem(.fixed(Constants.desiredCardWidth)), count: Int(size.width / Constants.desiredCardWidth))
-    }
-
     var body: some View {
         NavigationView {
             GeometryReader { geometry in
@@ -26,8 +22,8 @@ struct EmojiGameView: View {
                             }
                         }
                 }
-                    .padding(geometry.size.width * 0.01)
-                    .foregroundColor(.blue)
+                .padding(geometry.size.width * 0.01)
+                .foregroundColor(.blue)
             }
             .navigationTitle("Concentration")
             .navigationBarItems(leading: Button("New Game") {
@@ -37,10 +33,6 @@ struct EmojiGameView: View {
             }, trailing: Text("Score: \(emojiGame.score)"))
             .navigationBarTitleDisplayMode(.inline)
         }
-    }
-
-    private struct Constants {
-        static let desiredCardWidth: CGFloat = 110
     }
 }
 
