@@ -13,6 +13,7 @@
 		3F762B9526EA5139006B9E1A /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F762B9426EA5139006B9E1A /* CardView.swift */; };
 		3F762B9826EA5B9B006B9E1A /* Array+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F762B9726EA5B9B006B9E1A /* Array+Identifiable.swift */; };
 		3F89774826FE884600867A9B /* AspectVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F89774726FE884600867A9B /* AspectVGrid.swift */; };
+		3F89774C2705FCD100867A9B /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F89774B2705FCD100867A9B /* Theme.swift */; };
 		3F922BD826F53CBC006667D6 /* Array+Only.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F922BD726F53CBC006667D6 /* Array+Only.swift */; };
 		3F958B5226F394CB005CDD7D /* Pie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F958B5126F394CB005CDD7D /* Pie.swift */; };
 		3FCF306626E7C6C500651770 /* ConcentrationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF306526E7C6C500651770 /* ConcentrationApp.swift */; };
@@ -28,6 +29,7 @@
 		3F762B9426EA5139006B9E1A /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		3F762B9726EA5B9B006B9E1A /* Array+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Identifiable.swift"; sourceTree = "<group>"; };
 		3F89774726FE884600867A9B /* AspectVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectVGrid.swift; sourceTree = "<group>"; };
+		3F89774B2705FCD100867A9B /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		3F922BD726F53CBC006667D6 /* Array+Only.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Only.swift"; sourceTree = "<group>"; };
 		3F958B5126F394CB005CDD7D /* Pie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pie.swift; sourceTree = "<group>"; };
 		3FCF306226E7C6C500651770 /* Concentration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Concentration.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				3F762B9226E9171F006B9E1A /* ConcentrationGame.swift */,
+				3F89774B2705FCD100867A9B /* Theme.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 				3FCF306626E7C6C500651770 /* ConcentrationApp.swift in Sources */,
 				3F762B9126E912B3006B9E1A /* EmojiConcentrationGame.swift in Sources */,
 				3F741B4326FA211100677E08 /* Cardify.swift in Sources */,
+				3F89774C2705FCD100867A9B /* Theme.swift in Sources */,
 				3F762B9326E9171F006B9E1A /* ConcentrationGame.swift in Sources */,
 				3F958B5226F394CB005CDD7D /* Pie.swift in Sources */,
 				3F762B9826EA5B9B006B9E1A /* Array+Identifiable.swift in Sources */,
