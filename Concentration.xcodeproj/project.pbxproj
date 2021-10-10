@@ -20,6 +20,8 @@
 		3FCF306826E7C6C500651770 /* EmojiGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF306726E7C6C500651770 /* EmojiGameView.swift */; };
 		3FCF306A26E7C6C900651770 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FCF306926E7C6C900651770 /* Assets.xcassets */; };
 		3FCF306D26E7C6C900651770 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FCF306C26E7C6C900651770 /* Preview Assets.xcassets */; };
+		79EE7CB12710EBE100E38509 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EE7CB02710EBE100E38509 /* Menu.swift */; };
+		79EE7CB32710ED1500E38509 /* EmojiPregameMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EE7CB22710ED1500E38509 /* EmojiPregameMenu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		3FCF306726E7C6C500651770 /* EmojiGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiGameView.swift; sourceTree = "<group>"; };
 		3FCF306926E7C6C900651770 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FCF306C26E7C6C900651770 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		79EE7CB02710EBE100E38509 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		79EE7CB22710ED1500E38509 /* EmojiPregameMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiPregameMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,8 @@
 				3FCF306526E7C6C500651770 /* ConcentrationApp.swift */,
 				3FCF306726E7C6C500651770 /* EmojiGameView.swift */,
 				3F958B5126F394CB005CDD7D /* Pie.swift */,
+				79EE7CB02710EBE100E38509 /* Menu.swift */,
+				79EE7CB22710ED1500E38509 /* EmojiPregameMenu.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -202,8 +208,10 @@
 				3F741B4326FA211100677E08 /* Cardify.swift in Sources */,
 				3F89774C2705FCD100867A9B /* Theme.swift in Sources */,
 				3F762B9326E9171F006B9E1A /* ConcentrationGame.swift in Sources */,
+				79EE7CB12710EBE100E38509 /* Menu.swift in Sources */,
 				3F958B5226F394CB005CDD7D /* Pie.swift in Sources */,
 				3F762B9826EA5B9B006B9E1A /* Array+Identifiable.swift in Sources */,
+				79EE7CB32710ED1500E38509 /* EmojiPregameMenu.swift in Sources */,
 				3F762B9526EA5139006B9E1A /* CardView.swift in Sources */,
 				3F89774826FE884600867A9B /* AspectVGrid.swift in Sources */,
 				3F922BD826F53CBC006667D6 /* Array+Only.swift in Sources */,
@@ -345,7 +353,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -375,7 +383,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -8,11 +8,27 @@
 import SwiftUI
 
 class EmojiConcentrationGame: ObservableObject {
-    @Published private var game = createGame()
+    @Published private var game: ConcentrationGame<String>
+        
+    private var theme: (name: String, content: [String], numberOfPairsOfCards: Int, color: Color, gameType: String)
+    
+    init(theme: (name: String, content: [String], numberOfPairsOfCards: Int, color: Color, gameType: String), userNumberOfCards: String) {
+        game = EmojiConcentrationGame.createGame(theme: theme, userNumberOfCards: userNumberOfCards)
+        self.theme = theme
+    }
 
-    private static func createGame() -> ConcentrationGame<String> {
-        ConcentrationGame<String>(numberOfPairsOfCards: Int.random(in: 3...Theme.emojis.count)) { index in
-            Theme.emojis[index]
+    private static func createGame(theme: (name: String, content: [String], numberOfPairsOfCards: Int, color: Color, gameType: String), userNumberOfCards: String) -> ConcentrationGame<String> {
+        
+        var chosenCardCount = theme.numberOfPairsOfCards
+        
+        //only accept greater than 2
+        if let cardCount = Int(userNumberOfCards){
+            if(cardCount >= 2 && cardCount <= theme.content.count) {
+                chosenCardCount = cardCount
+            }
+        }
+        return ConcentrationGame<String>(numberOfPairsOfCards: chosenCardCount) { index in
+            theme.content[index]
         }
     }
 
@@ -33,6 +49,6 @@ class EmojiConcentrationGame: ObservableObject {
     }
 
     func newGame() {
-        game = EmojiConcentrationGame.createGame()
+        game = EmojiConcentrationGame.createGame(theme: theme, userNumberOfCards: "")
     }
 }
