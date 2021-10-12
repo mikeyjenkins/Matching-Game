@@ -34,7 +34,7 @@ struct EmojiGameView: View {
         ZStack {
             ForEach(emojiGame.cards) { card in
                 if isUndealt(card) {
-                    CardView(card: card)
+                    CardView(card: card, gameType: emojiGame.gameType)
                         .zIndex(zIndex(for: card))
                         .matchedGeometryEffect(id: card.id, in: dealingCards)
                         .transition(AnyTransition.asymmetric(insertion: .opacity, removal: .identity))
@@ -57,7 +57,7 @@ struct EmojiGameView: View {
         GeometryReader { geometry in
             AspectVGrid(items: emojiGame.cards, aspectRatio: CardConstants.aspectRatio) { card in
                 if !isUndealt(card) {
-                    CardView(card: card)
+                    CardView(card: card, gameType: emojiGame.gameType)
                         .zIndex(zIndex(for: card))
                         .matchedGeometryEffect(id: card.id, in: dealingCards)
                         .transition(AnyTransition.asymmetric(insertion: .identity, removal: .scale))

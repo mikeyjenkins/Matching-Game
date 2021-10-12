@@ -20,7 +20,6 @@ class EmojiConcentrationGame: ObservableObject {
     private static func createGame(theme: (name: String, content: [String], numberOfPairsOfCards: Int, color: Color, gameType: String), userNumberOfCards: String) -> ConcentrationGame<String> {
         
         var chosenCardCount = theme.numberOfPairsOfCards
-        
         //only accept greater than 2
         if let cardCount = Int(userNumberOfCards){
             if(cardCount >= 2 && cardCount <= theme.content.count) {
@@ -36,6 +35,10 @@ class EmojiConcentrationGame: ObservableObject {
 
     var cards: Array<ConcentrationGame<String>.Card> {
         game.cards
+    }
+    
+    var gameType: String {
+        theme.gameType
     }
 
     var score: Int {

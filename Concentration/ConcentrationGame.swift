@@ -26,7 +26,6 @@ struct ConcentrationGame<CardContent> where CardContent: Equatable {
 
         for pairIndex in 0..<numberOfPairsOfCards {
             let content = cardContentFactory(pairIndex)
-
             cards.append(Card(content: content))
             cards.append(Card(content: content))
         }

@@ -16,6 +16,10 @@ struct Menu: View {
                 NavigationLink(destination: EmojiPregameMenu()){
                     Text("Emoji Mojo")
                 }
+                NavigationLink(destination: TemplePregameMenu()){
+                    Text("Temple Match")
+                }
+                NavigationLink("Shapes", destination: EmojiGameView(emojiGame: EmojiConcentrationGame.init(theme: themes[7], userNumberOfCards: "4")))
             }
         }
     }

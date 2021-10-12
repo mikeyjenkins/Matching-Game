@@ -27,58 +27,58 @@ let themes = [
     (
         name: "Food",
         content: ["🥨", "🥑", "🥭", "🌶", "🥐", "🥯", "🍒", "🥦"],
-        color: Color.brown,
         numberOfPairsOfCards: 4,
+        color: Color.brown,
         gameType: "emoji"
     ),
     (
         name: "Animals",
         content: ["🦉", "🐢", "🐙", "🦞", "🐳", "🐄", "🦨", "🦮"],
-        color: Color.black,
         numberOfPairsOfCards: 4,
+        color: Color.black,
         gameType: "emoji"
     ),
     (
         name: "Smileys",
         content: ["🤕", "😥", "🤫", "🙄", "🤧", "😬", "🤥", "🥵"],
-        color: Color.black,
         numberOfPairsOfCards: 4,
+        color: Color.black,
         gameType: "emoji"
     ),
     (
         name: "Activity",
         content: ["⛷", "🏄🏻‍♀️", "🏋🏼‍♀️", "🤺", "🚴🏽‍♀️", "🧗‍♀️", "🏇", "🪂"],
-        color: Color.black,
         numberOfPairsOfCards: 4,
+        color: Color.black,
         gameType: "emoji"
     ),
     (
         name: "Clothing",
         content: ["👔", "🎩", "👟", "🧤", "🧦", "👑", "⛑", "👘"],
-        color: Color.black,
         numberOfPairsOfCards: 4,
+        color: Color.black,
         gameType: "emoji"
     ),
     (
         name: "Balls",
         content: ["⚽️", "🏀", "🏈", "⚾️", "🎾", "🏐", "🏉", "🥏"],
-        color: Color.black,
         numberOfPairsOfCards: 4,
+        color: Color.black,
         gameType: "emoji"
     ),
     (
-        name: "Pioneer Temple",
-        content: ["rect", "circle", "oval", "square"],
-        color: Color.blue,
+        name: "Utah",
+        content: ["SLC", "PROVO", "OGDEN", "MANTAI", "PROVO-CENTER", "LOGAN", "BOUNTIFUL", "TIMPANOGOS"],
         numberOfPairsOfCards: 4,
-        gameType: "shape"
+        color: Color.blue,
+        gameType: "temple"
     ),
     (
-        name: "Food",
-        content: ["slc", "provo", "boston"],
-        color: Color.green,
+        name: "shapes",
+        content: ["rect", "circle", "roundRect", "capsule"],
         numberOfPairsOfCards: 4,
-        gameType: "temple"
+        color: Color.green,
+        gameType: "shapes"
     )
 ]
 

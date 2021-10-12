@@ -9,8 +9,6 @@ import SwiftUI
 
 struct EmojiPregameMenu: View {
     @State private var cardUserInput = ""
-    @State private var cardBread = ""
-    @State private var cardFaces = ""
     
     
     var body: some View {
