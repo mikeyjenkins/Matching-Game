@@ -17,7 +17,7 @@ struct CardView: View {
         GeometryReader { geometry in
             if !card.isMatched || card.isFaceUp {
                 ZStack {
-                    if card.isConsumingBonusTime {
+                    if card.isConsumingBonusTime && gameType != .templeMatch {
                         Pie(startAngle: angle(for: 0),
                             endAngle: angle(for: -animatedBonusRemaining))
                             .padding(geometry.size.width * 0.04)
@@ -28,7 +28,7 @@ struct CardView: View {
                                     animatedBonusRemaining = 0
                                 }
                             }
-                    } else {
+                    } else if gameType != .templeMatch {
                         Pie(startAngle: angle(for: 0),
                             endAngle: angle(for: -card.bonusRemaining))
                             .padding(geometry.size.width * 0.04)
@@ -41,6 +41,23 @@ struct CardView: View {
                             .opacity(card.isMatched ? 0 : 1)
                             .animation(card.isMatched ? .linear(duration: 2.0)
                                        : .default, value: card.isMatched)
+                        if animatedBonusRemaining > 0 ||  card.bonusRemaining > 0 {
+                            if card.isConsumingBonusTime{
+                                CapsuleCountdown(value: animatedBonusRemaining, width:  geometry.size.width - 40)
+                                .offset(x: 0, y: geometry.size.height / 2 - 20)
+                                .padding()
+                                .onAppear() {
+                                    startBonusTimeAnimation()
+                                }
+                            }
+                                                
+                            else{
+                                CapsuleCountdown(value: card.bonusRemaining, width: geometry.size.width - 40)
+                                    .offset(x: 0, y: geometry.size.height / 2 - 20)
+                                    .padding()
+                            }
+                        }
+                        
                     } else if (gameType == .shapeScape) {
                         if(card.content == "rect"){
                             Rectangle()
@@ -80,6 +97,7 @@ struct CardView: View {
                 .transition(.scale)
             }
         }
+        .aspectRatio(2/3, contentMode: .fit)
     }
     
     struct Triangle: Shape {
@@ -97,6 +115,13 @@ struct CardView: View {
     
     private func angle(for degrees: Double) -> Angle {
         Angle.degrees(degrees * 360 - 90)
+    }
+    
+    private func startBonusTimeAnimation() {
+        animatedBonusRemaining = card.bonusRemaining
+        withAnimation(.linear(duration: card.bonusTimeRemaining)) {
+            animatedBonusRemaining = 0
+        }
     }
 
     private func systemFont(for size: CGSize) -> Font {

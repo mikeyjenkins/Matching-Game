@@ -23,6 +23,9 @@ struct Menu: View {
                 NavigationLink(destination: HighScores()){
                     Text("High Scores")
                 }
+                NavigationLink(destination: Settings()){
+                    Text("Settings")
+                }
             }
         }
     }

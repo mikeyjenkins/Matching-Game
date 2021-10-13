@@ -17,7 +17,7 @@ struct TemplePregameMenu: View {
                 
                 NavigationLink("East", destination: EmojiGameView(emojiGame: EmojiConcentrationGame.init(theme: themes[7], userNumberOfCards: cardUserInput)))
 //                
-                NavigationLink("East", destination: EmojiGameView(emojiGame: EmojiConcentrationGame.init(theme: themes[8], userNumberOfCards: cardUserInput)))
+                NavigationLink("Abroad", destination: EmojiGameView(emojiGame: EmojiConcentrationGame.init(theme: themes[8], userNumberOfCards: cardUserInput)))
 //                
                 TextField("Enter Number of Cards", text: $cardUserInput)
                 

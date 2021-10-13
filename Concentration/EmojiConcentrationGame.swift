@@ -25,7 +25,14 @@ class EmojiConcentrationGame: ObservableObject {
             let themes_shu = theme.content.shuffled()
             let randomNumber = Int.random(in: 2..<10)
             
-            return ConcentrationGame<String>(numberOfPairsOfCards: randomNumber, color: Color.black) { index in
+            func getRandomColor() -> Color{
+                 let randomRed = CGFloat.random(in: 0...1)
+                 let randomGreen = CGFloat.random(in: 0...1)
+                 let randomBlue = CGFloat.random(in: 0...1)
+                 return Color(red: Double(randomRed), green: Double(randomGreen), blue: Double(randomBlue))
+            }
+            
+            return ConcentrationGame<String>(numberOfPairsOfCards: randomNumber, color: getRandomColor()) { index in
                 themes_shu[index]
             }
         }
@@ -58,23 +65,13 @@ class EmojiConcentrationGame: ObservableObject {
     }
     
     var themeColor: Color {
-        if(theme.name == "Random"){
-            return getRandomColor()
-        } else {
-            return theme.color
-        }
+        game.color
     }
     
     var name: String {
         theme.name
     }
     
-    func getRandomColor() -> Color{
-         let randomRed = CGFloat.random(in: 0...1)
-         let randomGreen = CGFloat.random(in: 0...1)
-         let randomBlue = CGFloat.random(in: 0...1)
-         return Color(red: Double(randomRed), green: Double(randomGreen), blue: Double(randomBlue))
-    }
 
     // MARK: - Intents
 

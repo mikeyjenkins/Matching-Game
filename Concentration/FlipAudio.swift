@@ -18,10 +18,10 @@ struct SoundPlayer {
         }
         
         do{
-    //            if (UserDefaults.standard.bool(forKey: SettingsView.playSoundKey) == true){
+            if (UserDefaults.standard.bool(forKey: Settings.flipSound) == true){
                 player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
                 player?.play()
-            //}
+            }
         } catch{
             print("error")
         }
