@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CardView: View {
     var card: ConcentrationGame<String>.Card
-    var gameType: String
+    var gameType: GameType
 
     @State private var animatedBonusRemaining = 0.0
 
@@ -35,11 +35,13 @@ struct CardView: View {
                             .opacity(0.4)
                     }
                     
-                    if(gameType == "temple") {
+                    if(gameType == .templeMatch) {
                         Image(card.content).resizable()
                             .scaledToFit()
-                    }
-                    else if (gameType == "shapes") {
+                            .opacity(card.isMatched ? 0 : 1)
+                            .animation(card.isMatched ? .linear(duration: 2.0)
+                                       : .default, value: card.isMatched)
+                    } else if (gameType == .shapeScape) {
                         if(card.content == "rect"){
                             Rectangle()
                                 .fill(Color.red)
@@ -60,6 +62,11 @@ struct CardView: View {
                                 .fill(Color.yellow)
                                 .frame(width: 100, height: 50)
                         }
+                        if(card.content) == "triangle"{
+                            Triangle()
+                                .fill(Color.purple)
+                                .frame(width: 100, height: 100)
+                        }
                         
                     }
                     else {
@@ -75,6 +82,18 @@ struct CardView: View {
         }
     }
     
+    struct Triangle: Shape {
+        func path(in rect: CGRect) -> Path {
+            var path = Path()
+
+            path.move(to: CGPoint(x: rect.midX, y: rect.minY))
+            path.addLine(to: CGPoint(x: rect.minX, y: rect.maxY))
+            path.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY))
+            path.addLine(to: CGPoint(x: rect.midX, y: rect.minY))
+
+            return path
+        }
+    }
     
     private func angle(for degrees: Double) -> Angle {
         Angle.degrees(degrees * 360 - 90)
@@ -92,7 +111,7 @@ struct CardView: View {
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(card: ConcentrationGame<String>.Card(isFaceUp: true, isMatched: false, content: "capsule"), gameType: "shapes")
+        CardView(card: ConcentrationGame<String>.Card(isFaceUp: true, isMatched: false, content: "triangle"), gameType: .shapeScape)
             .foregroundColor(.orange)
             .padding(50)
     }

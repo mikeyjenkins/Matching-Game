@@ -6,10 +6,12 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct ConcentrationGame<CardContent> where CardContent: Equatable {
+    
     private(set) var cards: Array<Card>
-
+    var color: Color
     var score: Int {
         cards.reduce(0) { total, card in
             total + card.score
@@ -21,7 +23,7 @@ struct ConcentrationGame<CardContent> where CardContent: Equatable {
         set { cards.indices.forEach { cards[$0].isFaceUp = ($0 == newValue) } }
     }
 
-    init(numberOfPairsOfCards: Int, cardContentFactory: (Int) -> CardContent) {
+    init(numberOfPairsOfCards: Int, color: Color,  cardContentFactory: (Int) -> CardContent) {
         cards = Array<Card>()
 
         for pairIndex in 0..<numberOfPairsOfCards {
@@ -31,6 +33,7 @@ struct ConcentrationGame<CardContent> where CardContent: Equatable {
         }
 
         cards.shuffle()
+        self.color = color
     }
 
     mutating func choose(_ card: Card) {

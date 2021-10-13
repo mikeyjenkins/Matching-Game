@@ -21,9 +21,10 @@ struct EmojiPregameMenu: View {
                 NavigationLink("Smileys", destination: EmojiGameView(emojiGame: EmojiConcentrationGame.init(theme: themes[2], userNumberOfCards: cardUserInput)))
                 
                 NavigationLink("Activity", destination: EmojiGameView(emojiGame: EmojiConcentrationGame.init(theme: themes[3], userNumberOfCards: cardUserInput)))
+                NavigationLink("Clothing", destination: EmojiGameView(emojiGame: EmojiConcentrationGame.init(theme: themes[4], userNumberOfCards: cardUserInput)))
+                NavigationLink("Random", destination: EmojiGameView(emojiGame: EmojiConcentrationGame.init(theme: themes[5], userNumberOfCards: cardUserInput)))
                 
                 TextField("Enter Number of Cards", text: $cardUserInput)
-                
                 
             }
         }

@@ -21,6 +21,9 @@
 		3FCF306A26E7C6C900651770 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FCF306926E7C6C900651770 /* Assets.xcassets */; };
 		3FCF306D26E7C6C900651770 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FCF306C26E7C6C900651770 /* Preview Assets.xcassets */; };
 		7911CA5A27128A840062C0F5 /* TemplePregameMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7911CA5927128A840062C0F5 /* TemplePregameMenu.swift */; };
+		794D5F732717442D00EE9F59 /* HighScores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794D5F722717442D00EE9F59 /* HighScores.swift */; };
+		794D5F7527178B9100EE9F59 /* FlipAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794D5F7427178B9100EE9F59 /* FlipAudio.swift */; };
+		794D5F7A27178F2F00EE9F59 /* Flip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 794D5F7927178F2F00EE9F59 /* Flip.mp3 */; };
 		79EE7CB12710EBE100E38509 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EE7CB02710EBE100E38509 /* Menu.swift */; };
 		79EE7CB32710ED1500E38509 /* EmojiPregameMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EE7CB22710ED1500E38509 /* EmojiPregameMenu.swift */; };
 /* End PBXBuildFile section */
@@ -41,6 +44,9 @@
 		3FCF306926E7C6C900651770 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FCF306C26E7C6C900651770 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7911CA5927128A840062C0F5 /* TemplePregameMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplePregameMenu.swift; sourceTree = "<group>"; };
+		794D5F722717442D00EE9F59 /* HighScores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScores.swift; sourceTree = "<group>"; };
+		794D5F7427178B9100EE9F59 /* FlipAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipAudio.swift; sourceTree = "<group>"; };
+		794D5F7927178F2F00EE9F59 /* Flip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Flip.mp3; sourceTree = "<group>"; };
 		79EE7CB02710EBE100E38509 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		79EE7CB22710ED1500E38509 /* EmojiPregameMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiPregameMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,6 +82,7 @@
 				79EE7CB02710EBE100E38509 /* Menu.swift */,
 				79EE7CB22710ED1500E38509 /* EmojiPregameMenu.swift */,
 				7911CA5927128A840062C0F5 /* TemplePregameMenu.swift */,
+				794D5F722717442D00EE9F59 /* HighScores.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -94,6 +101,7 @@
 			children = (
 				3F762B9726EA5B9B006B9E1A /* Array+Identifiable.swift */,
 				3F922BD726F53CBC006667D6 /* Array+Only.swift */,
+				794D5F7427178B9100EE9F59 /* FlipAudio.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -117,6 +125,7 @@
 		3FCF306426E7C6C500651770 /* Concentration */ = {
 			isa = PBXGroup;
 			children = (
+				794D5F7627178D8300EE9F59 /* Audio */,
 				3F762B8F26E91296006B9E1A /* Model */,
 				3F762B8E26E9128D006B9E1A /* View */,
 				3F762B8D26E91284006B9E1A /* ViewModel */,
@@ -133,6 +142,14 @@
 				3FCF306C26E7C6C900651770 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		794D5F7627178D8300EE9F59 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				794D5F7927178F2F00EE9F59 /* Flip.mp3 */,
+			);
+			name = Audio;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +210,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				794D5F7A27178F2F00EE9F59 /* Flip.mp3 in Resources */,
 				3FCF306D26E7C6C900651770 /* Preview Assets.xcassets in Resources */,
 				3FCF306A26E7C6C900651770 /* Assets.xcassets in Resources */,
 			);
@@ -212,6 +230,8 @@
 				3F741B4326FA211100677E08 /* Cardify.swift in Sources */,
 				3F89774C2705FCD100867A9B /* Theme.swift in Sources */,
 				3F762B9326E9171F006B9E1A /* ConcentrationGame.swift in Sources */,
+				794D5F7527178B9100EE9F59 /* FlipAudio.swift in Sources */,
+				794D5F732717442D00EE9F59 /* HighScores.swift in Sources */,
 				79EE7CB12710EBE100E38509 /* Menu.swift in Sources */,
 				3F958B5226F394CB005CDD7D /* Pie.swift in Sources */,
 				3F762B9826EA5B9B006B9E1A /* Array+Identifiable.swift in Sources */,

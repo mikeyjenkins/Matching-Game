@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct EmojiGameView: View {
     @ObservedObject var emojiGame: EmojiConcentrationGame
 
@@ -14,18 +15,17 @@ struct EmojiGameView: View {
     @Namespace private var dealingCards
 
     var body: some View {
-        NavigationView {
+        VStack {
             ZStack(alignment: .bottom) {
                 gameBody
                 deckBody
             }
             .edgesIgnoringSafeArea(.bottom)
-            .navigationTitle("Concentration")
             .navigationBarItems(leading: Button("New Game") {
                 withAnimation {
                     emojiGame.newGame()
                 }
-            }, trailing: Text("Score: \(emojiGame.score)"))
+            }, trailing: Text("GHS:" + String(UserDefaults.standard.integer(forKey: emojiGame.name)) +  " Score: \(emojiGame.score)"))
             .navigationBarTitleDisplayMode(.inline)
         }
     }
@@ -41,7 +41,7 @@ struct EmojiGameView: View {
                 }
             }
         }
-        .foregroundColor(CardConstants.color)
+        .foregroundColor(emojiGame.themeColor)
         .frame(width: CardConstants.deckWidth, height: CardConstants.deckHeight)
         .padding(.bottom)
         .onTapGesture {
@@ -70,7 +70,7 @@ struct EmojiGameView: View {
                 }
             }
             .padding(geometry.size.width * 0.01)
-            .foregroundColor(CardConstants.color)
+            .foregroundColor(emojiGame.themeColor)
         }
     }
 
@@ -98,7 +98,6 @@ struct EmojiGameView: View {
 
     private struct CardConstants {
         static let aspectRatio: CGFloat = 2/3
-        static let color = Color.blue
         static let dealDuration = 0.5
         static let deckHeight: CGFloat = 150
         static let deckWidth = deckHeight * aspectRatio
@@ -108,6 +107,6 @@ struct EmojiGameView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        EmojiGameView(emojiGame: EmojiConcentrationGame(theme: themes[0], userNumberOfCards: ""))
+        EmojiGameView(emojiGame: EmojiConcentrationGame(theme: themes[7], userNumberOfCards: ""))
     }
 }
