@@ -25,7 +25,7 @@ struct EmojiGameView: View {
                 withAnimation {
                     emojiGame.newGame()
                 }
-            }, trailing: Text("GHS:" + String(UserDefaults.standard.integer(forKey: emojiGame.name)) +  " Score: \(emojiGame.score)"))
+            }, trailing: Text("Game Mode HS:" + String(UserDefaults.standard.integer(forKey: emojiGame.name)) + "  | " +  " Score: \(emojiGame.score)"))
             .navigationBarTitleDisplayMode(.inline)
         }
     }
